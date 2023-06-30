@@ -1,7 +1,7 @@
 # native-messaging-proxy
 (WIP) Proxy for WebExtensions native messaging to allow flatpak'ed Firefox to be able to interact with host applications.
 
-Was hacked together in one full night between workdays. I'm was not familiar with async Rust altogether before doing this.
+Was hacked together in one full night between workdays. I was not familiar with async Rust altogether before doing this.
 Maybe I will improve the code later.
 
 There are still some problems, such as host application do not shutdown after communication session.
