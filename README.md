@@ -58,7 +58,8 @@ There are still some problems, such as host application do not shutdown after co
    $ sed 's#"path": "/usr/bin/plasma-browser-integration-host"#"path": "/home/leenr/.var/app/org.mozilla.firefox/.mozilla/native-messaging-hosts/org.kde.plasma.browser_integration"#' /usr/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json
    ```
 
-6. Start or enable `nmp.socket` or `nmp.service`.
-7. Restart Firefox.
+6. Start or enable `nmp.socket` or `nmp.service`: `$ systemctl --user enable --now nmp.socket`
+7. Share the socket file with the Firefox's flatpak app: `$ flatpak --user override org.mozilla.firefox --filesystem=/run/user/1000/nmp.sock:ro`
+8. Restart Firefox.
 
 Note that changes inside `/usr/lib/mozilla/native-messaging-hosts` folder will require systemd service restart, as the daemon reads all manifest files on start and currently do not watch for changes.
